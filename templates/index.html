@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Verdict Desk — Fake News Detector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Special Edition &middot; AI Newsroom</p>
+    <h1 class="title">THE VERDICT DESK — Fake News Detector</h1>
+    <p class="subtitle">Paste any news article or message below. A text-pattern model reads it against thousands of known real and fake articles, and returns a verdict.</p>
+  </div>
+</header>
+
+<main class="desk">
+
+  <section class="clipboard">
+    <div class="clip"></div>
+    <div class="paper">
+      <label for="article-input" class="paper-label">Submitted copy</label>
+      <textarea id="article-input" placeholder="Paste a headline, article body, or forwarded message here…"></textarea>
+      <div class="desk-row">
+        <span class="char-count" id="char-count">0 characters</span>
+        <button id="analyze-btn" class="stamp-btn">
+          <span>Analyze</span>
+        </button>
+      </div>
+      <p id="error-msg" class="error-msg"></p>
+    </div>
+  </section>
+
+  <section id="result" class="result hidden">
+    <div class="result-inner">
+
+      <div class="verdict-zone">
+        <div id="stamp" class="stamp">
+          <span id="stamp-label">REAL</span>
+        </div>
+        <div class="confidence-block">
+          <p class="confidence-caption">Model confidence</p>
+          <p class="confidence-number"><span id="confidence-value">0</span>%</p>
+          <div class="confidence-bar">
+            <div id="bar-real" class="bar-fill bar-real"></div>
+            <div id="bar-fake" class="bar-fill bar-fake"></div>
+          </div>
+          <div class="confidence-legend">
+            <span><i class="dot dot-real"></i>Real <span id="pct-real">0%</span></span>
+            <span><i class="dot dot-fake"></i>Fake <span id="pct-fake">0%</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="explain-zone">
+        <p class="explain-heading">What tipped the verdict</p>
+        <p class="explain-sub">Words from your text the model has learned to associate with each class. This reflects writing patterns in the training data, not fact-checking.</p>
+        <div class="chip-row">
+          <div class="chip-group">
+            <p class="chip-group-label fake-label">Pushed toward FAKE</p>
+            <div id="fake-chips" class="chips"></div>
+          </div>
+          <div class="chip-group">
+            <p class="chip-group-label real-label">Pushed toward REAL</p>
+            <div id="real-chips" class="chips"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about">
+  <p class="about-heading">How Verdict Desk actually decides</p>
+  <p class="about-text">
+    Every word in your text is weighed against patterns learned from tens of thousands of real
+    and fake articles. Sensational, clickbait-style phrasing — "breaking," "shocking," "watch,"
+    "you won't believe" — tends to show up far more often in fake articles, while sourcing
+    language like "according to," named officials, and wire-service dates tend to show up in
+    real reporting. The Verdict Desk doesn't know anything about the world; it only knows what
+    fake and real articles have historically sounded like
+  </p>
+  <p class="about-text">
+    That's why it can be wrong — a well-written fake article can sound calm and sourced, and a
+    real story about something wild can sound sensational. When the evidence is too close to
+    call, the Desk says so instead of guessing. Treat every verdict as a starting point for your
+    own judgment, not the end of it.
+  </p>
+</section>
+
+<footer class="foot">
+    <p>A demo built to show, not just tell — the Desk reasons about words, you reason about the world.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
