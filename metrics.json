@@ -1,0 +1,81 @@
+{
+  "metrics": {
+    "accuracy": 0.9834,
+    "precision": 0.9882,
+    "recall": 0.98,
+    "f1_score": 0.9841
+  },
+  "confusion_matrix": [
+    [
+      4229,
+      55
+    ],
+    [
+      94,
+      4602
+    ]
+  ],
+  "top_words": {
+    "fake_indicators": [
+      "video",
+      "just",
+      "read",
+      "president trump",
+      "gop",
+      "hillary",
+      "featured image",
+      "featured",
+      "image",
+      "obama",
+      "watch",
+      "america",
+      "mr",
+      "wire",
+      "breaking",
+      "getty",
+      "com",
+      "getty images",
+      "like",
+      "sen",
+      "rep",
+      "president obama",
+      "american",
+      "isis",
+      "didn"
+    ],
+    "real_indicators": [
+      "said",
+      "president donald",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "republican",
+      "friday",
+      "monday",
+      "nov",
+      "minister",
+      "president barack",
+      "presidential",
+      "said statement",
+      "democratic",
+      "reporters",
+      "comment",
+      "told",
+      "spokesman",
+      "britain",
+      "told reporters",
+      "senate",
+      "representatives",
+      "house representatives",
+      "court",
+      "saying"
+    ]
+  },
+  "dataset": {
+    "source": "ISOT Fake and Real News Dataset (Fake.csv + True.csv)",
+    "total_articles": 44898,
+    "fake_articles": 23481,
+    "real_articles": 21417,
+    "test_set_size": 8980
+  }
+}
